@@ -1,0 +1,85 @@
+<header>
+    <div class="header">
+        <h3 class="details">Cactus V Hotel, 30th January 2024  7pm</h3>
+        <h1>RSVP</h1>
+    </div>
+  
+</header>
+
+<div *ngIf="!tokenValid; else elseBlock" class="expired-container">
+    <h2>Uh Oh.. This link is no longer valid</h2>
+    <img src="/assets/images/expired.png" alt="expired" width=20% height=20%>
+</div>
+
+<ng-template #elseBlock>
+    <div class="d-flex justify-content-around" >
+  <div class="form-container">
+    <h2>We hope to see you on our special day</h2>
+
+    <form [formGroup]="rsvpForm" (ngSubmit)="rsvp()" class="mt-3">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          formControlName="name"
+          id="name"
+          class="form-control"
+          placeholder="Enter name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          id="email"
+          placeholder="Enter email"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+      </div>
+
+      
+      <label> Food &nbsp; </label>
+
+      <div
+        class="custom-control custom-radio custom-control-inline"
+        *ngFor="let f of foodPref; i as index"
+      >
+        <input
+          type="radio"
+          formControlName="foodId"
+          class="custom-control-input"
+          value="{{ f.id }}"
+          id="{{f.food_type}}"
+        />
+        <label class="custom-control-label" for="{{f.food_type}}">{{ f.food_type }}</label>
+      </div>
+
+      <div class="form-group">
+        <label>Allergies</label>
+        <select formControlName="allergyId" class="custom-select">
+          <option *ngFor="let a of allergies" value="{{ a.id }}">
+            {{ a.allergy }}
+          </option>
+        </select>
+      </div>
+
+      <button class="btn btn-warning" type="submit" [disabled]="rsvpForm.invalid">
+        RSVP
+      </button>
+    </form>
+  </div>
+
+
+
+
+  <div class="details-cont">
+     
+      <img src="/assets/images/proposal.png" alt="wedding" width= "70%" height="90%">
+  </div>
+</div>
+</ng-template>

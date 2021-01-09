@@ -1,0 +1,19 @@
+
+.header{
+    
+    position: fixed;
+    left: 0px; top: 0px;
+}
+
+.svg1{
+    height:80%;
+    width: 80%;
+}
+
+.footer{
+    
+    position: fixed;
+    right: 0px; bottom: 0px;
+  
+
+}
