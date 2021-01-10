@@ -17,7 +17,9 @@ export class RsvpComponent implements OnInit {
   tokenId: string
   relationshipId: number
   tokenValid: boolean
-  constructor(private fb: FormBuilder, private infoSvc: InfoService, private activatedRoute: ActivatedRoute, private rsvpSvc: RsvpService) { 
+  rsvpTitle: string = "RSVP"
+  rsvpSideTitle: string =""
+  constructor(private fb: FormBuilder, private infoSvc: InfoService,private router: Router,private activatedRoute: ActivatedRoute, private rsvpSvc: RsvpService) { 
     this.tokenId = this.activatedRoute.snapshot.params['token']
     this.relationshipId = this.activatedRoute.snapshot.params['rsId']
     this.validateLink(this.tokenId)
@@ -55,9 +57,12 @@ export class RsvpComponent implements OnInit {
     rsvpData.foodId = parseInt(rsvpData.foodId)
     rsvpData.allergyId = parseInt(rsvpData.allergyId)
     rsvpData.relationshipId = this.relationshipId
-    console.log(rsvpData)
+    console.log(rsvpData.name)
     this.rsvpSvc.saveRsvp(rsvpData as rsvpForm)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        this.router.navigate(['/rsvp/complete'], {queryParams: {name: rsvpData.name}})
+      })
       .catch(e=> console.log(e))
   }
 

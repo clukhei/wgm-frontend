@@ -12,6 +12,7 @@ import { RsvpService } from './rsvp.service';
 import { InfoService } from './info.service';
 import { TemplateOneComponent } from './layouts/template-one.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SeeYouComponent } from './components/see-you.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RsvpComponent,
     MainComponent,
     GenerateLinkComponent,
-    TemplateOneComponent
+    TemplateOneComponent,
+    SeeYouComponent
   ],
   imports: [
     BrowserModule,

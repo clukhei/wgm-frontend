@@ -1,10 +1,4 @@
-<header>
-    <div class="header">
-        <h3 class="details">Cactus V Hotel, 30th January 2024  7pm</h3>
-        <h1>RSVP</h1>
-    </div>
-  
-</header>
+<app-template-one [mainTitle]="rsvpTitle"></app-template-one>
 
 <div *ngIf="!tokenValid; else elseBlock" class="expired-container">
     <h2>Uh Oh.. This link is no longer valid</h2>
@@ -12,7 +6,7 @@
 </div>
 
 <ng-template #elseBlock>
-    <div class="d-flex justify-content-around" >
+    <div class="d-flex" >
   <div class="form-container">
     <h2>We hope to see you on our special day</h2>
 
@@ -77,9 +71,24 @@
 
 
 
-  <div class="details-cont">
-     
-      <img src="/assets/images/proposal.png" alt="wedding" width= "70%" height="90%">
+  <div class="details-cont">     
+      <img src="/assets/images/proposal.png" alt="wedding" width= "450" height="350">
+      <table class="table-details">
+        <tr>
+          <th>Venue &nbsp;</th>
+          <td>Regent Hotel, Singapore </td>
+        </tr>
+        <tr>
+          <th>Date &nbsp;</th>
+          <td>30th Jan 2040 , 7:00pm</td>
+        </tr>
+      </table>
+
+      
+
+
+
+
   </div>
 </div>
 </ng-template>
