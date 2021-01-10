@@ -12,24 +12,34 @@
 
     <form [formGroup]="rsvpForm" (ngSubmit)="rsvp()" class="mt-3">
       <div class="form-group">
-        <label for="name">Name</label>
+        
         <input
           type="text"
-          formControlName="name"
-          id="name"
+          formControlName="firstName"
+          id="firstName"
           class="form-control"
-          placeholder="Enter name"
+          placeholder="Enter first name"
+        />
+      </div>
+      <div class="form-group">
+    
+        <input
+          type="text"
+          formControlName="lastName"
+          id="lastName"
+          class="form-control"
+          placeholder="Enter last name"
         />
       </div>
 
       <div class="form-group">
-        <label for="email">Email address</label>
+        
         <input
           type="email"
           class="form-control"
           formControlName="email"
           id="email"
-          placeholder="Enter email"
+          placeholder="Enter email address"
         />
         <small id="emailHelp" class="form-text text-muted"
           >We'll never share your email with anyone else.</small
@@ -37,7 +47,7 @@
       </div>
 
       
-      <label> Food &nbsp; </label>
+      <label> Food &nbsp; </label><br>
 
       <div
         class="custom-control custom-radio custom-control-inline"
@@ -52,6 +62,7 @@
         />
         <label class="custom-control-label" for="{{f.food_type}}">{{ f.food_type }}</label>
       </div>
+      <br><br>
 
       <div class="form-group">
         <label>Allergies</label>
@@ -61,9 +72,10 @@
           </option>
         </select>
       </div>
+      
 
       <button class="btn btn-warning" type="submit" [disabled]="rsvpForm.invalid">
-        RSVP
+        I am attending
       </button>
     </form>
   </div>

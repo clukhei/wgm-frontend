@@ -29,7 +29,8 @@ export class RsvpComponent implements OnInit {
     this.fetchFoodInfo()
     this.fetchAllergyInfo()
     this.rsvpForm = this.fb.group({
-      name: this.fb.control('', Validators.required),
+      firstName: this.fb.control('', Validators.required),
+      lastName: this.fb.control('',Validators.required),
       email: this.fb.control('', Validators.required),
       foodId: this.fb.control('', Validators.required),
       allergyId: this.fb.control('', Validators.required)
@@ -57,11 +58,12 @@ export class RsvpComponent implements OnInit {
     rsvpData.foodId = parseInt(rsvpData.foodId)
     rsvpData.allergyId = parseInt(rsvpData.allergyId)
     rsvpData.relationshipId = this.relationshipId
-    console.log(rsvpData.name)
+    rsvpData.attending = true
+    console.log(rsvpData.firstName)
     this.rsvpSvc.saveRsvp(rsvpData as rsvpForm)
       .then(res => {
         console.log(res)
-        this.router.navigate(['/rsvp/complete'], {queryParams: {name: rsvpData.name}})
+        this.router.navigate(['/rsvp/complete'], {queryParams: {name: rsvpData.firstName}})
       })
       .catch(e=> console.log(e))
   }
