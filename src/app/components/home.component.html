@@ -1,0 +1,42 @@
+<app-template-one [mainTitle]="header"></app-template-one>
+
+<div class="d-flex container justify-content-around">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Total Invited</h5>
+      <h1 class="card-text">{{ totalInvited }}</h1>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Accepted</h5>
+      <h1 class="card-text">{{ attending }}</h1>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Arrived</h5>
+      <h1 class="card-text">1/{{ attending }}</h1>
+      <!-- <div id="chartContainer" style="height: 250px; width: 100%;"></div> -->
+    </div>
+  </div>
+</div>
+
+<div class="d-flex container justify-content-around mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Get full details of your guests</h5>
+        <button class="btn btn-primary" (click)="downloadCSV()">
+          Download
+        </button>
+        <!-- <div id="chartContainer" style="height: 250px; width: 100%;"></div> -->
+      </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Generate RSVP Link </h5>
+          
+        </div>
+      </div>
+  </div>

@@ -1,5 +1,6 @@
 
-export interface relationship{
+
+export interface relationship {
     id: number
     type: string
 }
@@ -10,7 +11,7 @@ export interface foodPref {
     notes: string
 }
 
-export interface allergies{
+export interface allergies {
     id: number
     allergy: string
 }
@@ -22,4 +23,22 @@ export interface rsvpForm {
     relationshipId: number
     foodId: number
     allergyId: number
+}
+
+export interface invitedGuest {
+    tokenId: string
+    rep_name: string
+    valid: number
+    created_at: string
+    updated_at: string
+
+}
+export interface attendingGuest {
+    first_name: string
+    last_name: string
+    table: number
+    email: string
+    type: string
+    allergy: string
+    food_type: string
 }

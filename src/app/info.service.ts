@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { allergies, foodPref, relationship } from "./models";
+import { allergies, foodPref, invitedGuest, relationship } from "./models";
 
 
 const BASE_URL = "http://localhost:3000/info"
@@ -22,5 +22,6 @@ export class InfoService {
         return this.http.get<allergies[]>(`${BASE_URL}/allergy`).toPromise()
         
     }
+  
 
 }
