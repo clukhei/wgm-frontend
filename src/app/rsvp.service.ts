@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { promise } from "protractor";
 import { attendingGuest, invitedGuest, rsvpForm } from "./models";
@@ -28,4 +28,9 @@ export class RsvpService {
     getAttending():Promise<attendingGuest[]> {
         return this.http.get<attendingGuest[]>(`${BASE_URL}/attending`).toPromise()
     }
+    checkIn(id:number): Promise<any>{
+        
+        return this.http.get<any>(`${BASE_URL}/checkin/${id}`).toPromise()
+    }
+    
 }

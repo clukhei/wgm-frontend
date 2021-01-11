@@ -35,7 +35,6 @@
     <div class="card-body">
       <h5 class="card-title">Generate RSVP Link</h5>
       <form [formGroup]="generateLinkForm">
-        
         <div class="input-group mb-3">
           <input
             id="typeahead-basic"
@@ -43,7 +42,7 @@
             type="text"
             class="form-control"
             [ngbTypeahead]="search"
-            formClassName="name"
+            formControlName="name"
           />
           <div class="input-group-append">
             <button
@@ -54,12 +53,13 @@
               aria-expanded="false"
               aria-controls="collapseExample"
               data-bs-target="#collapseExample"
+              [disabled]="generateLinkForm.invalid"
             >
               +
             </button>
           </div>
         </div>
-   
+
         <hr />
 
         <div class="collapse" [ngbCollapse]="isCollapsed" id="collapseExample">
@@ -75,7 +75,16 @@
               #link
             />
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" (click)="copy(link)">
+        
+              <button
+                aria-expanded="false"
+                aria-controls="collapseExample"
+                data-bs-target="#collapseExample"
+                data-bs-toggle="collapse"
+                class="btn btn-outline-secondary"
+                type="button"
+                (click)="copy(link)"
+              >
                 copy
               </button>
             </div>

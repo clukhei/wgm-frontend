@@ -8,7 +8,7 @@ import { attendingGuest, generateToken, invitedGuest, invitedNames } from '../mo
 import { type } from 'os';
 import { Observable } from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
-import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     debounceTime(200),
     distinctUntilChanged(),
     map(term => term.length < 2 ? []
-      : this.invitedGuestNames.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+      : this.invitedGuestNames.filter((v) => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
   )
 
   isCollapsed: boolean = true
@@ -43,10 +43,11 @@ export class HomeComponent implements OnInit {
     this.getSummary()
 
     this.generateLinkForm = this.fb.group({
-      name: this.fb.control(''),
+      name: this.fb.control('', Validators.required),
       link: this.fb.control('')
     })
 
+    console.log(this.generateLinkForm)
     // let chart = new CanvasJS.Chart("chartContainer", {
     //   animationEnabled: true,
     //   data: [{
@@ -113,7 +114,8 @@ export class HomeComponent implements OnInit {
     this.isCollapsed = !this.isCollapsed
     const rsvpUrl = `http://localhost:4200/rsvp`
     console.log(this.invitedGuestNames)
-    this.rsvpSvc.generateToken("name")
+    const repName = this.generateLinkForm.get('name').value
+    this.rsvpSvc.generateToken(repName)
     .then(res=> {
       this.tokenTicket = res
       console.log(this.generateLinkForm.get('link'))
@@ -124,9 +126,9 @@ export class HomeComponent implements OnInit {
   copy(elem) {
     elem.select()
     elem.setSelectionRange(0,99999)
-    document.execCommand("copy")
-    alert("copied to clipboard")
-  
+    document.execCommand("copy")   
+    this.generateLinkForm.reset()
+    this.isCollapsed = !this.isCollapsed
   }
 
 }

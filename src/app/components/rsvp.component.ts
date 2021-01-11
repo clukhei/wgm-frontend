@@ -63,7 +63,7 @@ export class RsvpComponent implements OnInit {
     this.rsvpSvc.saveRsvp(rsvpData as rsvpForm)
       .then(res => {
         console.log(res)
-        this.router.navigate(['/rsvp/complete'], {queryParams: {name: rsvpData.firstName}})
+        this.router.navigate(['/complete'], {queryParams: {name: rsvpData.firstName}})
       })
       .catch(e=> console.log(e))
   }

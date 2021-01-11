@@ -1,0 +1,13 @@
+.container{
+    padding: 5%;
+}
+
+.checkin-container {
+    display:block;
+    text-align: center;
+}
+
+.card-title{
+    color: #084887;
+    font-weight: bold;
+}

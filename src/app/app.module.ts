@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { RsvpComponent } from './components/rsvp.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DragulaModule } from 'ng2-dragula';
 
-import { GenerateLinkComponent } from './components/generate-link.component'
 import { RsvpService } from './rsvp.service';
 import { InfoService } from './info.service';
 import { TemplateOneComponent } from './layouts/template-one.component';
@@ -16,18 +16,23 @@ import { SeeYouComponent } from './components/see-you.component';
 import { TemplateTwoComponent } from './layouts/template-two.component';
 import { HomeComponent } from './components/home.component';
 import { TableComponent } from './components/table.component';
+import { CheckinComponent } from './components/checkin.component';
+import { AssigntableComponent } from './components/assigntable.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RsvpComponent,
 
-    GenerateLinkComponent,
     TemplateOneComponent,
     SeeYouComponent,
     TemplateTwoComponent,
     HomeComponent,
-    TableComponent
+    TableComponent,
+    CheckinComponent,
+    AssigntableComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,7 @@ import { TableComponent } from './components/table.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    DragulaModule.forRoot()
 
   ],
   providers: [RsvpService,InfoService],

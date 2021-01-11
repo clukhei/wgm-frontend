@@ -35,6 +35,7 @@ export interface invitedGuest extends invitedNames {
 
 }
 export interface attendingGuest {
+    id: number
     first_name: string
     last_name: string
     table: number

@@ -2,7 +2,7 @@ header{
     position:relative;
     background-image: url("/assets/images/Group 2.png");
     background-repeat: no-repeat;
-    background-size: 70vw 29vh;
+    background-size:40vw 29vh;
     width: 100%;
     height: 30vh;
     padding-right: 5%;
@@ -15,7 +15,7 @@ footer{
     width: 100%;
     background-image:url("/assets/images/Group 5.png");
     background-repeat:no-repeat;
-    background-size:70vw 29vh;
+    background-size:50vw 29vh;
     height:29vh;
     transform: rotateY(-180deg);
     -ms-transform: rotateY(-180deg);
@@ -33,4 +33,8 @@ footer{
 
 .details{
     color:#f7f5fb;
+}
+
+@media screen and (max-width:500px){
+
 }
