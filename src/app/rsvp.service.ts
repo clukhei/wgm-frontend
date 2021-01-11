@@ -8,8 +8,8 @@ const BASE_URL = "http://localhost:3000/guests"
 export class RsvpService {
     constructor(private http: HttpClient){
     }
-    generateToken(){
-    
+    generateToken(repName: string){
+        return this.http.post<any>(`${BASE_URL}/rsvp-link`, {repName}).toPromise()
     }
 
     checkLinkValidity(token){

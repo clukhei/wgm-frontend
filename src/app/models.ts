@@ -1,3 +1,4 @@
+import { StringLiteralLike } from "typescript";
 
 
 export interface relationship {
@@ -20,14 +21,14 @@ export interface rsvpForm {
     name: string
     email: string
     tokenId: string
-    relationshipId: number
     foodId: number
     allergyId: number
 }
-
-export interface invitedGuest {
+export interface invitedNames {
     tokenId: string
     rep_name: string
+}
+export interface invitedGuest extends invitedNames {
     valid: number
     created_at: string
     updated_at: string
@@ -41,4 +42,10 @@ export interface attendingGuest {
     type: string
     allergy: string
     food_type: string
+}
+
+export interface generateToken {
+    repName: string
+    tokenId: string
+    valid: boolean
 }

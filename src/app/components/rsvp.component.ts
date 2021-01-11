@@ -21,7 +21,7 @@ export class RsvpComponent implements OnInit {
   rsvpSideTitle: string =""
   constructor(private fb: FormBuilder, private infoSvc: InfoService,private router: Router,private activatedRoute: ActivatedRoute, private rsvpSvc: RsvpService) { 
     this.tokenId = this.activatedRoute.snapshot.params['token']
-    this.relationshipId = this.activatedRoute.snapshot.params['rsId']
+    // this.relationshipId = this.activatedRoute.snapshot.params['rsId']
     this.validateLink(this.tokenId)
   }
 
@@ -57,7 +57,7 @@ export class RsvpComponent implements OnInit {
     rsvpData.tokenId = this.tokenId
     rsvpData.foodId = parseInt(rsvpData.foodId)
     rsvpData.allergyId = parseInt(rsvpData.allergyId)
-    rsvpData.relationshipId = this.relationshipId
+    // rsvpData.relationshipId = this.relationshipId
     rsvpData.attending = true
     console.log(rsvpData.firstName)
     this.rsvpSvc.saveRsvp(rsvpData as rsvpForm)

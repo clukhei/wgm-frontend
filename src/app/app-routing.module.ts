@@ -7,7 +7,7 @@ import { TableComponent } from './components/table.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent },
-  {path: 'rsvp/:rsId/:token', component: RsvpComponent},
+  {path: 'rsvp/:token', component: RsvpComponent},
   {path:'rsvp/complete', component:SeeYouComponent},
   {path:'tableview',component:TableComponent}
 ];
