@@ -50,3 +50,10 @@ export interface generateToken {
     tokenId: string
     valid: boolean
 }
+
+export interface loginSuccess {
+    message: string
+    token: string
+    userName: string
+    loginTime: string
+}

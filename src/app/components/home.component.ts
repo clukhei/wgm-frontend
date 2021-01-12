@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoService } from '../info.service';
-import { RsvpService } from '../rsvp.service';
+import { GuestService } from '../guest.service';
 import * as CanvasJS from '../canvasjs.min.js';
 import { timeStamp } from 'console';
 import { Papa } from 'ngx-papaparse';
@@ -17,7 +17,7 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private rsvpSvc: RsvpService, private papa: Papa, private fb: FormBuilder) { }
+  constructor(private guestSvc: GuestService, private papa: Papa, private fb: FormBuilder) { }
   header: string = "Dashboard"
   totalInvited: number
   attending: number
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
 
   }
   getSummary() {
-    const getInvited = this.rsvpSvc.getInvited()
+    const getInvited = this.guestSvc.getInvited()
       .then(res => {
         console.log(res)
         this.totalInvited = res.length
@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
       })
       .catch(e => console.log(e))
 
-    const getAttending = this.rsvpSvc.getAttending()
+    const getAttending = this.guestSvc.getAttending()
       .then(res => {
         console.log(res)
         this.attending = res.length
@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit {
     const rsvpUrl = `http://localhost:4200/rsvp`
     console.log(this.invitedGuestNames)
     const repName = this.generateLinkForm.get('name').value
-    this.rsvpSvc.generateToken(repName)
+    this.guestSvc.generateToken(repName)
     .then(res=> {
       this.tokenTicket = res
       console.log(this.generateLinkForm.get('link'))

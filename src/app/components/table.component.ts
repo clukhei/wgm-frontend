@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { attendingGuest, invitedGuest } from '../models';
-import { RsvpService } from '../rsvp.service';
+import { GuestService } from '../guest.service';
 
 @Component({
   selector: 'app-table',
@@ -10,14 +10,14 @@ import { RsvpService } from '../rsvp.service';
 export class TableComponent implements OnInit {
   header: string = "Guest Info"
   data: attendingGuest[]
-  constructor(private rsvpSvc: RsvpService) { }
+  constructor(private guestSvc: GuestService) { }
 
   ngOnInit(): void {
     this.getData()
   }
 
   getData() {
-    const getAttending = this.rsvpSvc.getAttending()
+    const getAttending = this.guestSvc.getAttending()
       .then(res => {
         console.log(res)
         this.data = res

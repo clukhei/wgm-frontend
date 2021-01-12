@@ -1,36 +1,18 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { promise } from "protractor";
-import { attendingGuest, invitedGuest, rsvpForm } from "./models";
+import { rsvpForm } from "./models";
 
-const BASE_URL = "http://localhost:3000/guests"
+const BASE_URL = "http://localhost:3000/rsvp"
+
 @Injectable()
 export class RsvpService {
-    constructor(private http: HttpClient){
-    }
-    generateToken(repName: string){
-        return this.http.post<any>(`${BASE_URL}/rsvp-link`, {repName}).toPromise()
-    }
-
+    constructor(private http: HttpClient){}
     checkLinkValidity(token){
-        return this.http.get<any>(`${BASE_URL}/rsvp/${token}`).toPromise()
+        let params = (new HttpParams()).set("token", token)
+        return this.http.get<any>(`${BASE_URL}/form`, {params}).toPromise()
     }
 
     saveRsvp(rsvpData: rsvpForm): Promise<any>{
-        return this.http.post<any>(`${BASE_URL}/rsvp`, rsvpData).toPromise()
+        return this.http.post<any>(`${BASE_URL}/submit`, rsvpData).toPromise()
     }
-
-      
-    getInvited():Promise<invitedGuest[]> {
-        return this.http.get<invitedGuest[]>(`${BASE_URL}/invited`).toPromise()
-    }
-
-    getAttending():Promise<attendingGuest[]> {
-        return this.http.get<attendingGuest[]>(`${BASE_URL}/attending`).toPromise()
-    }
-    checkIn(id:number): Promise<any>{
-        
-        return this.http.get<any>(`${BASE_URL}/checkin/${id}`).toPromise()
-    }
-    
 }

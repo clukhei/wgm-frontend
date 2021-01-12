@@ -6,14 +6,17 @@ import { HomeComponent } from './components/home.component';
 import { RsvpComponent } from './components/rsvp.component';
 import { SeeYouComponent } from './components/see-you.component';
 import { TableComponent } from './components/table.component';
+import { LoginComponent} from './components/login.component';
+import { AuthService } from './auth.service';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent },
+  {path: '', component: LoginComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthService] },
   {path: 'rsvp/:token', component: RsvpComponent},
   {path:'complete', component:SeeYouComponent},
-  {path:'tableview',component:TableComponent},
+  {path:'tableview',component:TableComponent, canActivate: [AuthService]},
   {path:'checkin',component: CheckinComponent},
-  {path: 'assigntable', component:AssigntableComponent}
+  {path: 'assigntable', component:AssigntableComponent, canActivate: [AuthService]}
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 header{
     position:relative;
-    background-image: url("/assets/images/Group 2.png");
+    background-image: url("/assets/backgrounds/Group 2.png");
     background-repeat: no-repeat;
     background-size:40vw 29vh;
     width: 100%;
@@ -13,7 +13,7 @@ footer{
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-image:url("/assets/images/Group 5.png");
+    background-image:url("/assets/backgrounds/Group 5.png");
     background-repeat:no-repeat;
     background-size:50vw 29vh;
     height:29vh;

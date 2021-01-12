@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InfoService } from '../info.service';
 import { allergies, foodPref, rsvpForm } from '../models';
+import { GuestService } from '../guest.service';
 import { RsvpService } from '../rsvp.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class RsvpComponent implements OnInit {
   tokenValid: boolean
   rsvpTitle: string = "RSVP"
   rsvpSideTitle: string =""
-  constructor(private fb: FormBuilder, private infoSvc: InfoService,private router: Router,private activatedRoute: ActivatedRoute, private rsvpSvc: RsvpService) { 
+  constructor(private fb: FormBuilder, private infoSvc: InfoService,private router: Router,private activatedRoute: ActivatedRoute, private rsvpSvc:RsvpService) { 
     this.tokenId = this.activatedRoute.snapshot.params['token']
     // this.relationshipId = this.activatedRoute.snapshot.params['rsId']
     this.validateLink(this.tokenId)
