@@ -24,6 +24,8 @@ import { AuthService } from './auth.service';
 import { RsvpService } from './rsvp.service';
 import { PaymentsComponent } from './stripe/payments.component';
 import { PaymentService } from './payment.service';
+import { SuccessComponent } from './stripe/success.component';
+import { FailureComponent } from './stripe/failure.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { PaymentService } from './payment.service';
     AssigntableComponent,
     LoginComponent,
     PaymentsComponent,
+    SuccessComponent,
+    FailureComponent,
 
   ],
   imports: [

@@ -1,3 +1,4 @@
+import { StringifyOptions } from "querystring";
 import { StringLiteralLike } from "typescript";
 
 
@@ -61,5 +62,11 @@ export interface loginSuccess {
 export interface paymentBody{
     unit_amount: number
     name: string
+    id: number
+}
+
+export interface GuestNames{
+    first_name: string
+    last_name: string
     id: number
 }

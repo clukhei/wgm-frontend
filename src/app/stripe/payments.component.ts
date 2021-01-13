@@ -13,33 +13,34 @@ import { StripeService} from 'ngx-stripe';
 export class PaymentsComponent implements OnInit {
 
 
+  isCollapsed: boolean = true
   paymentForm: FormGroup
   constructor(private fb: FormBuilder, private paymentSvc: PaymentService, private stripe: StripeService) { }
 
   ngOnInit(): void {
     this.paymentForm = this.fb.group({
-      amount: this.fb.control('',  [Validators.required, Validators.min(10)]),
+      amount: this.fb.control('',  [Validators.required, Validators.min(10), Validators.pattern("^[1-9][0-9]*$")]),
     })
+  }
+  show(){
+    this.isCollapsed = !this.isCollapsed
   }
 
 
   stripeCheckout(){
+
     const test : paymentBody = {
-      unit_amount: 200,
+      unit_amount: this.paymentForm.get('amount').value,
       name: "crimson",
-      id: 2 
+      id: 4
     }
     
   
 
     this.paymentSvc.stripeCheckout(test)
-      .then(res=> {
-        console.log(res)
-        return res.paymentSessionId
-      })
-      .then(session => {
-        return this.stripe.redirectToCheckout({sessionId: session}).subscribe()
-       
+      .then(session=> {
+        return this.stripe.redirectToCheckout({sessionId: session.id}).subscribe()
+
       })
     
       .catch(error => {

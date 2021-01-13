@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GuestService } from '../guest.service';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { attendingGuest } from '../models';
+import { attendingGuest, GuestNames } from '../models';
+import { InfoService } from '../info.service';
 
 @Component({
   selector: 'app-checkin',
@@ -11,9 +12,9 @@ import { attendingGuest } from '../models';
 })
 export class CheckinComponent implements OnInit {
   guestNames = []
-  guestList : attendingGuest[]=[]
+  guestList : GuestNames[]=[]
   tableNo: Number =null
-  constructor(private guestSvc: GuestService) { }
+  constructor(private guestSvc: GuestService, private infoSvc: InfoService) { }
 
   ngOnInit(): void {
     this.fetchAttendingGuests()
@@ -29,7 +30,7 @@ export class CheckinComponent implements OnInit {
 
     
   fetchAttendingGuests(){
-    this.guestSvc.getAttending()
+    this.infoSvc.getGuestNames()
     .then(res => {
       this.guestList = res
       this.guestNames = res.map(i=> {

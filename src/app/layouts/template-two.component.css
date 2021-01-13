@@ -1,6 +1,15 @@
-header{
+.test{
+    width: 100%;
+    height:100vh;
+      
+    background-image: url("/assets/backgrounds/Thur.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+body{
     position:relative;
-    background-image: url("/assets/backgrounds/Group 2.png");
+    background-image: url("/assets/backgrounds/Thur.svg");
     background-repeat: no-repeat;
     background-size:40vw 29vh;
     width: 100%;
@@ -35,6 +44,17 @@ footer{
     color:#f7f5fb;
 }
 
+.bg1{
+    background-image: url("/assets/Thur.svg");
+    background-repeat: no-repeat;
+}
+
+div .tmp-one-bg{
+    background-image: url("/assets/backgrounds/Thur.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
 @media screen and (max-width:500px){
 
 }

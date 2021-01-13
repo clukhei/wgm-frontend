@@ -3,7 +3,12 @@
 body{
     font-family: "Montserrat";
     font-weight: 500;
-  
+
+/*   
+    background-image: url("/assets/backgrounds/Thur.svg");
+    background-repeat: no-repeat;
+    background-size:cover; */
+    
 }
 
 /* h1{

@@ -1,11 +1,82 @@
-<p>payments works!</p>
-<script src="https://js.stripe.com/v3/"></script>
-<script type="text/javascript">
-  const stripe   = Stripe('pk_test_51I8nBQEc9ThdRQ56TjbO8qxruzAIJayeeCIGa6kPgvjgoBekdQDV9mRGxyxTvpxungGGi2ZtLIXKNwUPlqz2KhVp00ern9RzOn');
-  const elements = stripe.elements();
-</script>
-
-
-<button class="btn btn-primary" id="checkout-button" (click)="stripeCheckout()">
-  Stripe Checkout
-</button>
+<div class="card">
+  <div class="card-body">
+    <button
+      class="btn btn-outline-danger"
+      type="button"
+      (click)="show()"
+      data-bs-toggle="collapse"
+      aria-expanded="false"
+      aria-controls="collapseExample"
+      data-bs-target="#collapseExample"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-envelope"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"
+        />
+      </svg>
+      &nbsp; e-angbao
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-chevron-down"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
+    </button>
+    <form [formGroup]="paymentForm">
+      <div class="container mt-3">
+        <div class="collapse" [ngbCollapse]="isCollapsed" id="collapseExample">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="amount"
+              id="rsvpLink"
+              placeholder="Input amount SGD"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+              #link
+            />
+          </div>
+          <code *ngIf="paymentForm.invalid && paymentForm.dirty">You have entered invalid expressions</code>
+          <button
+            [disabled]="paymentForm.invalid"
+            class="btn btn-warning"
+            id="checkout-button"
+            (click)="stripeCheckout()"
+          >
+            Make Payment &nbsp;
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-credit-card"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"
+              />
+              <path
+                d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { InfoService } from '../info.service';
 import { GuestService } from '../guest.service';
 import * as CanvasJS from '../canvasjs.min.js';
-import { timeStamp } from 'console';
+
 import { Papa } from 'ngx-papaparse';
 import { attendingGuest, generateToken, invitedGuest, invitedNames } from '../models';
-import { type } from 'os';
+
 import { Observable } from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
