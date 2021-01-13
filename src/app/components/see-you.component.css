@@ -1,15 +1,11 @@
-header{
-    position:relative;
-    background-image: url("/assets/backgrounds/Group3.png");
-    background-repeat: no-repeat;
-    background-size: 100vw 29vh;
+
+
+.design{
     width: 100%;
-    height: 30vh;
-    padding-right: 5%;
-    
-}
-.header{
-    display: flex;
-    justify-content:space-between;
-  
+    height:100vh;
+      
+    background-image: url("/assets/backgrounds/bg2.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding: 50px;
 }

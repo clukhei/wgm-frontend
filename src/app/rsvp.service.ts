@@ -1,8 +1,9 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { rsvpForm } from "./models";
+import {environment} from "../environments/environment"
 
-const BASE_URL = "http://localhost:3000/rsvp"
+const BASE_URL = `${environment.backendUrl}/rsvp`
 
 @Injectable()
 export class RsvpService {

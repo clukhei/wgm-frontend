@@ -1,0 +1,47 @@
+<svg id="Component_16_1" data-name="Component 16 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <defs>
+    <linearGradient id="linear-gradient" x2="0.992" y2="0.992" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fec55f"/>
+      <stop offset="1" stop-color="#fcd06d"/>
+    </linearGradient>
+  </defs>
+  <path id="Background" d="M0,0H1600V1200H0Z" transform="translate(0 0)" fill="#fff"/>
+  <g id="Thur">
+    <g id="Shape" transform="translate(0 0)">
+      <path id="Shape-2" data-name="Shape" d="M200,100,100,200,0,100,100,0Z" transform="translate(700)" fill="#e45865"/>
+    </g>
+    <g id="Shape-3" data-name="Shape" transform="translate(0 0)">
+      <path id="Shape-4" data-name="Shape" d="M200,100,100,200,0,100,100,0Z" transform="translate(301 1000)" fill="#e45865"/>
+    </g>
+    <g id="Shape-5" data-name="Shape" transform="translate(0 0)">
+      <path id="Shape-6" data-name="Shape" d="M200,100,100,200,0,100,100,0Z" transform="translate(101 1000)" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Shape-7" data-name="Shape" d="M200,0V0Z" transform="translate(1001 1000)" fill="#1c528a"/>
+    <path id="Shape-8" data-name="Shape" d="M0,0H200V200Z" transform="translate(1 1000)" fill="#ffd4c4"/>
+    <g id="Shape-9" data-name="Shape" transform="translate(0 0)">
+      <path id="Shape-10" data-name="Shape" d="M200,100,100,200,0,100,100,0Z" transform="translate(900)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Shape-11" data-name="Shape" transform="translate(0 0)">
+      <path id="Shape-12" data-name="Shape" d="M0,200V0H200Z" transform="translate(600)" fill="#98dede"/>
+    </g>
+    <path id="Shape-13" data-name="Shape" d="M200,200h0Z" transform="translate(0 0)" fill="#1c528a"/>
+    <path id="Shape-14" data-name="Shape" d="M100,50,50,100,0,50H100Z" transform="translate(950 250)" fill="#fff"/>
+    <path id="Shape-15" data-name="Shape" d="M-100,0-200,100H0Z" transform="translate(1500 0) rotate(-90)" fill="#ffd4c4"/>
+    <path id="Shape-16" data-name="Shape" d="M-100,0-200,100l100,100L0,100Z" transform="translate(1300 0) rotate(-90)" fill="#1c528a"/>
+    <path id="Shape-17" data-name="Shape" d="M200,0V0Z" transform="translate(200 0)" fill="#ffd4c4"/>
+    <g id="Shape-18" data-name="Shape" transform="translate(0 0)">
+      <path id="Shape-19" data-name="Shape" d="M200,200H0V0Z" transform="translate(0 800)" fill="#98dede"/>
+    </g>
+    <g id="Shape-20" data-name="Shape" transform="translate(0 0)">
+      <path id="Shape-21" data-name="Shape" d="M-200,200H0V0Z" transform="translate(1200) rotate(-90)" fill="#98dede"/>
+    </g>
+    <path id="Shape-22" data-name="Shape" d="M-200,0V0Z" transform="translate(1200 800) rotate(-90)" fill="#ffd4c4"/>
+    <g id="Shape-23" data-name="Shape" transform="translate(0 0)">
+      <path id="Shape-24" data-name="Shape" d="M0,0H200V200Z" transform="translate(1000)" fill="#98dede"/>
+    </g>
+    <path id="Shape-25" data-name="Shape" d="M400,0Z" transform="translate(1400 200) rotate(90)" fill="#1c528a"/>
+    <g id="Shape-26" data-name="Shape" transform="translate(0 0)">
+      <path id="Shape-27" data-name="Shape" d="M50,0l50,50L50,100,0,50Z" transform="translate(1450 50)" fill="#98dede"/>
+    </g>
+  </g>
+</svg>

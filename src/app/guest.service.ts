@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { promise } from "protractor";
+import {environment} from "../environments/environment"
 import { attendingGuest, invitedGuest, rsvpForm } from "./models";
 
 
 
-const BASE_URL = "http://localhost:3000/guests"
+const BASE_URL = `${environment.backendUrl}/guests`
 @Injectable()
 export class GuestService {
     headers: HttpHeaders

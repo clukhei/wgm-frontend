@@ -5,3 +5,27 @@
 .card-w-chart{
     width:30rem; text-align: center;
 }
+
+.design{
+    width: 100%;
+    height:100vh;
+      
+    background-image: url("/assets/backgrounds/bg2.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+  
+}
+
+ul>li:hover {
+    cursor:pointer;
+    font-weight: bold;
+   
+    
+}
+
+ul{
+    list-style: none;
+}
+header{
+    
+}

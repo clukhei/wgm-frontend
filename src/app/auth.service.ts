@@ -3,8 +3,8 @@ import {HttpClient} from "@angular/common/http"
 import { loginSuccess } from "./models";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
 
-
-const BASE_URL = "http://localhost:3000"
+import {environment} from "../environments/environment"
+const BASE_URL = environment.backendUrl
 @Injectable()
 export class AuthService implements CanActivate{
     constructor(private http: HttpClient, private router: Router){}

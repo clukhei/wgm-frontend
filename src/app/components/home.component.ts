@@ -9,6 +9,7 @@ import { attendingGuest, generateToken, invitedGuest, invitedNames } from '../mo
 import { Observable } from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private guestSvc: GuestService, private papa: Papa, private fb: FormBuilder) { }
+  constructor(private guestSvc: GuestService, private papa: Papa, private fb: FormBuilder, private router: Router) { }
   header: string = "Dashboard"
   totalInvited: number
   attending: number
@@ -131,4 +132,13 @@ export class HomeComponent implements OnInit {
     this.isCollapsed = !this.isCollapsed
   }
 
+  logout(){
+    localStorage.removeItem("token")
+    this.router.navigate(['/'])
+  
+  }
+
+  goCheckIn(){
+    this.router.navigate(['/checkin'])
+  }
 }

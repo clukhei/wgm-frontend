@@ -1,14 +1,15 @@
-<app-template-one [mainTitle]="rsvpTitle"></app-template-one>
+<div class="design">
+
+
 
 <div *ngIf="!tokenValid; else elseBlock" class="expired-container">
-    <h2>Uh Oh.. This link is no longer valid</h2>
-    <img src="/assets/background/expired.png" alt="expired" width=20% height=20%>
+    <h2 >Uh Oh.. This link is no longer valid</h2>
 </div>
 
 <ng-template #elseBlock>
-    <div class="d-flex" >
+    <div class="d-flex align-items-end" >
   <div class="form-container">
-    <h2>We hope to see you on our special day</h2>
+    <h3>We hope to see you on our special day</h3>
 
     <form [formGroup]="rsvpForm" (ngSubmit)="rsvp()" class="mt-3">
       <div class="form-group">
@@ -104,3 +105,4 @@
   </div>
 </div>
 </ng-template>
+</div>

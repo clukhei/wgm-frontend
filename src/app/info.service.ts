@@ -1,9 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { allergies, foodPref, GuestNames, invitedGuest, relationship } from "./models";
+import {environment} from "../environments/environment"
 
-
-const BASE_URL = "http://localhost:3000/info"
+const BASE_URL = `${environment.backendUrl}/info`
 @Injectable()
 
 export class InfoService {

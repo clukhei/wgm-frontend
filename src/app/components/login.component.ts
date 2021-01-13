@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
   
   login(){
+    console.log('hello')
     const email = this.loginForm.get('email').value
     const password = this.loginForm.get('password').value 
     this.authSvc.doLogin(email, password)
