@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { InfoService } from '../info.service';
 import { GuestService } from '../guest.service';
 import * as CanvasJS from '../canvasjs.min.js';
@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
 })
 
 export class HomeComponent implements OnInit {
+  @ViewChild('file') csvfile: ElementRef
   constructor(private guestSvc: GuestService, private papa: Papa, private fb: FormBuilder, private router: Router) { }
   header: string = "Dashboard"
   totalInvited: number
@@ -85,6 +86,26 @@ export class HomeComponent implements OnInit {
       })
   }
 
+  uploadCSV(file){
+    //call an api
+    
+  }
+
+ jsonParsedData: attendingGuest[]
+
+  handleCSVInput($event){
+    console.log($event.srcElement.files)
+    const file = $event.srcElement.files
+    const reader: FileReader = new FileReader()
+    reader.readAsText(file[0])
+    reader.onload = e => {
+      const csv = reader.result
+      this.jsonParsedData = this.papa.parse(csv as string, {header:true, delimiter: ','}).data as attendingGuest[]
+      console.log(this.jsonParsedData)
+      
+    }
+    
+  }
   downloadCSV() {
 
     const csv = this.papa.unparse(this.attendingGuestsData, {

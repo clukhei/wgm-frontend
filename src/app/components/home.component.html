@@ -38,6 +38,16 @@
         <!-- <div id="chartContainer" style="height: 250px; width: 100%;"></div> -->
       </div>
     </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Upload your guest details</h5>
+        <input type="file" #file name="csvfile" id="csvfile" (change)="handleCSVInput($event)">
+        <button class="btn btn-warning" (click)="uploadCSV(file)">
+          Upload
+        </button>
+        <!-- <div id="chartContainer" style="height: 250px; width: 100%;"></div> -->
+      </div>
+    </div>
 
     <div class="card">
       <div class="card-body">
