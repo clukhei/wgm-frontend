@@ -57,3 +57,9 @@ export interface loginSuccess {
     userName: string
     loginTime: string
 }
+
+export interface paymentBody{
+    unit_amount: number
+    name: string
+    id: number
+}

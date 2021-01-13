@@ -7,6 +7,7 @@ import { RsvpComponent } from './components/rsvp.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DragulaModule } from 'ng2-dragula';
+import { NgxStripeModule } from 'ngx-stripe';
 
 import { GuestService } from './guest.service';
 import { InfoService } from './info.service';
@@ -21,6 +22,8 @@ import { AssigntableComponent } from './components/assigntable.component';
 import { LoginComponent } from './components/login.component';
 import { AuthService } from './auth.service';
 import { RsvpService } from './rsvp.service';
+import { PaymentsComponent } from './stripe/payments.component';
+import { PaymentService } from './payment.service';
 
 
 @NgModule({
@@ -36,6 +39,7 @@ import { RsvpService } from './rsvp.service';
     CheckinComponent,
     AssigntableComponent,
     LoginComponent,
+    PaymentsComponent,
 
   ],
   imports: [
@@ -45,10 +49,11 @@ import { RsvpService } from './rsvp.service';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    DragulaModule.forRoot()
+    DragulaModule.forRoot(),
+    NgxStripeModule.forRoot('pk_test_51I8nBQEc9ThdRQ56TjbO8qxruzAIJayeeCIGa6kPgvjgoBekdQDV9mRGxyxTvpxungGGi2ZtLIXKNwUPlqz2KhVp00ern9RzOn'),
 
   ],
-  providers: [GuestService,InfoService, AuthService, RsvpService],
+  providers: [GuestService,InfoService, AuthService, RsvpService, PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
