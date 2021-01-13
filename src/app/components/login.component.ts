@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  goCheckIn(){
+    this.router.navigate(['/checkin'])
+  }
+  
   login(){
     const email = this.loginForm.get('email').value
     const password = this.loginForm.get('password').value 

@@ -3,11 +3,23 @@
 }
 
 .checkin-container {
-    display:block;
+   
+    
+    transform: translate(120%, 70%);
+    width: 40%;
     text-align: center;
 }
 
 .card-title{
     color: #084887;
     font-weight: bold;
+}
+
+.design{
+    width: 100%;
+    height:100vh;
+      
+    background-image: url("/assets/backgrounds/Thur.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
 }

@@ -1,37 +1,41 @@
-<app-template-two></app-template-two>
+<div class="design">
 
-<div class="container wrapper">
-  <h1>wedding guest manager</h1>
-  <div class="d-flex">
+  <div class="container" #login>
+    <button class="btn btn-warning mb-5" (click)="goCheckIn()">Check-in on Arrival</button>
     <div>
-      <h2>Login</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="login()" class="login">
-      <div class="form-group">
-        <label for="user">User</label>
-        <input type="text" formControlName="email" class="form-control" id="user" placeholder="Enter your email"/>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          formControlName="password"
-          id="password"
-          class="form-control"
-          placeholder="Enter your password"
-        />
-      </div>
     
-      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
-        Login
-      </button>
-    </form>
-    </div>
-    <div>
-      add here
+      <h2>wedding guest manager</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="login">
+        <h3>Login</h3>
+        <div class="form-group">
+          <label for="user">User</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            id="user"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            formControlName="password"
+            id="password"
+            class="form-control"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="loginForm.invalid"
+        >
+          Login
+        </button>
+      </form>
     </div>
   </div>
-
-  
 </div>
-
-  
