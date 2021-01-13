@@ -8,8 +8,9 @@ import { SeeYouComponent } from './components/see-you.component';
 import { TableComponent } from './components/table.component';
 import { LoginComponent} from './components/login.component';
 import { AuthService } from './auth.service';
-import { PaymentService } from './payment.service';
-import { PaymentsComponent } from './stripe/payments.component';
+import { SuccessComponent } from './stripe/success.component';
+import { FailureComponent } from './stripe/failure.component';
+
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path:'tableview',component:TableComponent, canActivate: [AuthService]},
   {path:'checkin',component: CheckinComponent},
   {path: 'assigntable', component:AssigntableComponent, canActivate: [AuthService]},
-  {path: 'payment', component: PaymentsComponent}
+  {path: 'payment/success', component: SuccessComponent},
+  {path: 'payment/failure', component :FailureComponent},
+  {path: "**", redirectTo: "/", pathMatch:"full"}
 ];
 
 @NgModule({

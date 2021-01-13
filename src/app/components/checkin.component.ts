@@ -14,6 +14,7 @@ export class CheckinComponent implements OnInit {
   guestNames = []
   guestList : GuestNames[]=[]
   tableNo: Number =null
+  checkedInGuestId: number
   constructor(private guestSvc: GuestService, private infoSvc: InfoService) { }
 
   ngOnInit(): void {
@@ -40,14 +41,12 @@ export class CheckinComponent implements OnInit {
   }
 
   getTableNo(input){
-    console.log(input.value)
-    console.log(this.guestNames)
+   
     const idx = this.guestNames.findIndex(i=> i == input.value)
-    console.log(idx)
-    console.log(this.guestList[idx])
+ 
+    this.checkedInGuestId = this.guestList[idx].id
     this.tableNo = /* this.guestList[idx].table */ 1
-    console.log(this.tableNo)
-    this.guestSvc.checkIn(this.guestList[idx].id)
+    this.guestSvc.checkIn(this.checkedInGuestId)
       .catch(err=> console.log(err))
   }
 }

@@ -1,19 +1,17 @@
 <div class="design">
-<div class="checkin-container ">
-  <h4>Welcome to ... and ... wedding</h4>
+  <div class="checkin-container">
+    <h4>Welcome to ... and ... wedding</h4>
 
-<div class="input-group mb-3 container">
+    <div class="input-group mb-3 container">
+      <input
+        id="typeahead-basic"
+        placeholder="search for your name "
+        type="text"
+        class="form-control"
+        [ngbTypeahead]="search"
+        #name
+      />
 
-
-    <input
-      id="typeahead-basic"
-      placeholder="search for your name "
-      type="text"
-      class="form-control"
-      [ngbTypeahead]="search"
-      #name
-    />
-   
       <button
         class="btn btn-outline-secondary"
         type="button"
@@ -22,23 +20,21 @@
         aria-expanded="false"
         aria-controls="collapseExample"
         data-bs-target="#collapseExample"
-       
       >
         Get table
       </button>
-   
-  </div>
-
-  <div class="card" style="width: 18rem;margin:0 auto;" *ngIf="tableNo">
-    <div class="card-body">
-      <p>Please proceed to </p>
-      <h5 class="card-title">Table {{tableNo}}</h5>
-     
-      
     </div>
+
+    <div class="card" style="width: 18rem; margin: 0 auto" *ngIf="tableNo">
+      <div class="card-body">
+        <p>Please proceed to</p>
+        <h5 class="card-title">Table {{ tableNo }}</h5>
+      </div>
+    </div>
+    <app-payments
+      [payerName]="name.value"
+      [payerId]="checkedInGuestId"
+    ></app-payments>
+
   </div>
-  <app-payments></app-payments>
-</div>
-
-
 </div>

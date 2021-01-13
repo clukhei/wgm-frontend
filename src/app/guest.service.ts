@@ -32,7 +32,7 @@ export class GuestService {
     }
     checkIn(id:number): Promise<any>{
         
-        return this.http.get<any>(`http://localhost:3000/checkin/${id}`).toPromise()
+        return this.http.get<any>(`${environment.backendUrl}/checkin/${id}`).toPromise()
     }
     
 }

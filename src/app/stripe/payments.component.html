@@ -52,6 +52,7 @@
             />
           </div>
           <code *ngIf="paymentForm.invalid && paymentForm.dirty">You have entered invalid expressions</code>
+          <code *ngIf="error">Please check-in with your name first</code>
           <button
             [disabled]="paymentForm.invalid"
             class="btn btn-warning"

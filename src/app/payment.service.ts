@@ -16,4 +16,7 @@ export class PaymentService{
        return this.http.post<any>(`${BASE_URL}/checkout`, obj ).toPromise()
     }
 
+    savePaymentRecord(obj):Promise<any> {
+        return this.http.post<any>(`${BASE_URL}/success`, obj).toPromise()
+    }
 }
