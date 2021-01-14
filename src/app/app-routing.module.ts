@@ -10,6 +10,7 @@ import { LoginComponent} from './components/login.component';
 import { AuthService } from './auth.service';
 import { SuccessComponent } from './stripe/success.component';
 import { FailureComponent } from './stripe/failure.component';
+import { PaymentService } from './payment.service';
 
 
 const routes: Routes = [
@@ -18,8 +19,8 @@ const routes: Routes = [
   {path: 'rsvp/:token', component: RsvpComponent},
   {path:'complete', component:SeeYouComponent},
   {path:'checkin',component: CheckinComponent},
-  {path: 'payment/success', component: SuccessComponent},
-  {path: 'payment/failure', component :FailureComponent},
+  {path: 'payment/success', component: SuccessComponent, canActivate:[PaymentService]},
+  {path: 'payment/failure', component :FailureComponent, canActivate:[PaymentService]},
   {path: "**", redirectTo: "/", pathMatch:"full"}
 ];
 

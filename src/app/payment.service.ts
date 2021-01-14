@@ -3,20 +3,31 @@ import { Injectable } from "@angular/core";
 import { paymentBody } from "./models";
 import { StripeService} from 'ngx-stripe';
 import {environment} from "../environments/environment"
+import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router"
 
 
 const BASE_URL = `${environment.backendUrl}/payment`
 @Injectable()
-export class PaymentService{
+export class PaymentService implements CanActivate { 
 
-    constructor(private http: HttpClient, private stripe: StripeService){
+    payingStripeMode: boolean =false
+    constructor(private http: HttpClient, private router: Router){
 
     }
     stripeCheckout(obj: paymentBody): Promise<any>{
+        this.payingStripeMode = true
        return this.http.post<any>(`${BASE_URL}/checkout`, obj ).toPromise()
     }
 
     savePaymentRecord(obj):Promise<any> {
         return this.http.post<any>(`${BASE_URL}/success`, obj).toPromise()
     }
+
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+        if (this.payingStripeMode){
+            return true
+        }
+        return this.router.parseUrl('/checkin')
+    }
+  
 }
