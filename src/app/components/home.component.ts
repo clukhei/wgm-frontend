@@ -169,7 +169,7 @@ export class HomeComponent implements OnInit {
   }
 
   generateLink(){
-    this.isCollapsed = !this.isCollapsed
+   
     const rsvpUrl = `https://frontend-chi-two.vercel.app/rsvp`
     console.log(this.invitedGuestNames)
     const repName = this.generateLinkForm.get('name').value
@@ -178,6 +178,7 @@ export class HomeComponent implements OnInit {
       this.tokenTicket = res
       console.log(this.generateLinkForm.get('link'))
       this.generateLinkForm.get('link').setValue(`${rsvpUrl}/${this.tokenTicket.tokenId}`)
+      this.isCollapsed = !this.isCollapsed
     })
       .catch(err=>console.log(err))
   }
