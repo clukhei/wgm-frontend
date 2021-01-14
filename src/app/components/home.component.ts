@@ -170,7 +170,7 @@ export class HomeComponent implements OnInit {
 
   generateLink(){
     this.isCollapsed = !this.isCollapsed
-    const rsvpUrl = `http://localhost:4200/rsvp`
+    const rsvpUrl = `https://frontend-chi-two.vercel.app`
     console.log(this.invitedGuestNames)
     const repName = this.generateLinkForm.get('name').value
     this.guestSvc.generateToken(repName)
