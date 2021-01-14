@@ -45,7 +45,7 @@ export class CheckinComponent implements OnInit {
     const idx = this.guestNames.findIndex(i=> i == input.value)
  
     this.checkedInGuestId = this.guestList[idx].id
-    this.tableNo = /* this.guestList[idx].table */ 1
+    this.tableNo = this.guestList[idx].tableNo 
     this.guestSvc.checkIn(this.checkedInGuestId)
       .catch(err=> console.log(err))
   }

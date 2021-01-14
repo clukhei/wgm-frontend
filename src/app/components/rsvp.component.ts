@@ -17,7 +17,7 @@ export class RsvpComponent implements OnInit {
   allergies: allergies[]
   tokenId: string
   relationshipId: number
-  tokenValid: boolean
+  tokenValid: boolean =true
   rsvpTitle: string = "RSVP"
   rsvpSideTitle: string =""
   constructor(private fb: FormBuilder, private infoSvc: InfoService,private router: Router,private activatedRoute: ActivatedRoute, private rsvpSvc:RsvpService) { 

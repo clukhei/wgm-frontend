@@ -68,5 +68,6 @@ export interface paymentBody{
 export interface GuestNames{
     first_name: string
     last_name: string
-    id: number
+    id: number,
+    tableNo: number
 }

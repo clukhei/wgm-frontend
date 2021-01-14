@@ -6,8 +6,8 @@ import * as CanvasJS from '../canvasjs.min.js';
 import { Papa } from 'ngx-papaparse';
 import { attendingGuest, generateToken, invitedGuest, invitedNames } from '../models';
 
-import { Observable } from 'rxjs';
-import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import {debounceTime, distinctUntilChanged, map, takeUntil} from 'rxjs/operators';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   tokenTicket: generateToken
   generateLinkForm : FormGroup
 
+  arrivalResult : number
+  notifier = new Subject()
+
 
 
   search = (text$: Observable<string>) =>
@@ -43,11 +46,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSummary()
-
+    this.getArrivals()
     this.generateLinkForm = this.fb.group({
       name: this.fb.control('', Validators.required),
       link: this.fb.control('')
     })
+
+   
 
     console.log(this.generateLinkForm)
     // let chart = new CanvasJS.Chart("chartContainer", {
@@ -66,6 +71,19 @@ export class HomeComponent implements OnInit {
     // });
     // chart.render();
 
+  }
+
+  getArrivals(){
+    this.guestSvc.getArrivals()
+    .pipe(takeUntil(this.notifier))
+    .subscribe(
+      res => {
+        this.arrivalResult = res[0].count
+      },
+      err => {
+        console.log(err)
+      }
+    )
   }
   getSummary() {
     const getInvited = this.guestSvc.getInvited()
@@ -87,13 +105,25 @@ export class HomeComponent implements OnInit {
       Promise.all([getInvited, getAttending])
   }
 
+  uploading: boolean = false
   uploadCSV(file){
     //call an api
+    this.uploading = true 
     this.guestSvc.updateTables(this.jsonParsedData)
+      .then((res)=> {
+        this.uploading=false 
+        return res
+      })
       .then(res=>{
         alert(res.message)
+        window.location.reload()
       })
-      .catch(e=> console.log(e))
+      .catch(e=> {
+        this.uploading = false
+        alert("upload error: please use exact template from downloaded guestlist")
+        console.log(e)
+
+      })
   }
 
  jsonParsedData: attendingGuest[]
@@ -105,7 +135,7 @@ export class HomeComponent implements OnInit {
     reader.readAsText(file[0])
     reader.onload = e => {
       const csv = reader.result
-      this.jsonParsedData = this.papa.parse(csv as string, {header:true, delimiter: ','}).data as attendingGuest[]
+      this.jsonParsedData = this.papa.parse(csv as string, {header:true, delimiter: ',', dynamicTyping:true}).data as attendingGuest[]
       console.log(this.jsonParsedData)
       
     }

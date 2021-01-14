@@ -22,8 +22,8 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Arrived</h5>
-        <h1 class="card-text">1/{{ attending }}</h1>
-        <!-- <div id="chartContainer" style="height: 250px; width: 100%;"></div> -->
+        <h1 class="card-text">{{arrivalResult}}/{{ attending }}</h1>
+     
       </div>
     </div>
   </div>
@@ -35,17 +35,20 @@
         <button class="btn btn-primary" (click)="downloadCSV()">
           Download
         </button>
-        <!-- <div id="chartContainer" style="height: 250px; width: 100%;"></div> -->
+  
       </div>
     </div>
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Upload your guest details</h5>
+        <h5 class="card-title">Assign guest to tables</h5>
+        <small class="card-text mb-3">*use the download template</small>
         <input type="file" #file name="csvfile" id="csvfile" (change)="handleCSVInput($event)">
         <button class="btn btn-warning mt-3" (click)="uploadCSV(file)" [disabled]="!file.value">
+          <div *ngIf="uploading" class="spinner-grow text-danger spinner-grow-sm" role="status">
+          </div>
           Upload
         </button>
-        <!-- <div id="chartContainer" style="height: 250px; width: 100%;"></div> -->
+
       </div>
     </div>
 

@@ -1,5 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable, throwError } from "rxjs";
+import { catchError, tap } from "rxjs/operators";
 import {environment} from "../environments/environment"
 import { attendingGuest, invitedGuest, rsvpForm } from "./models";
 
@@ -12,6 +14,7 @@ export class GuestService {
     constructor(private http: HttpClient){
         this.headers = new HttpHeaders({
             "Content-Type": "application/json",
+            'Accept': "applicatoin/json",
             Authorization: "Bearer " + localStorage.getItem("token"),
         })
     }
@@ -27,6 +30,28 @@ export class GuestService {
 
     getAttending():Promise<attendingGuest[]> {
         return this.http.get<attendingGuest[]>(`${BASE_URL}/attending`, {headers: this.headers}).toPromise()
+    }
+
+    getArrivals(): Observable<any>{
+        return this.http.get(`${BASE_URL}/arrived-count`, {headers: this.headers})
+            .pipe(
+                tap(_ => console.log(_, "fetched arrivals")),
+                catchError(this.handleError)
+            )
+    }
+
+    private handleError(error: HttpErrorResponse){
+        if (error.error instanceof ErrorEvent){
+            console.error('An error occurred:', error.error.message)
+        } else{
+            console.error(
+                `Backend returned code ${error.status}` +
+                `body was ${error.error}`
+            )
+        }
+        return throwError(
+            `Error status ${error.status}. Something bad happened. Please try again later`
+        )
     }
     checkIn(id:number): Promise<any>{
         
