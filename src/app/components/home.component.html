@@ -42,7 +42,7 @@
       <div class="card-body">
         <h5 class="card-title">Upload your guest details</h5>
         <input type="file" #file name="csvfile" id="csvfile" (change)="handleCSVInput($event)">
-        <button class="btn btn-warning" (click)="uploadCSV(file)">
+        <button class="btn btn-warning mt-3" (click)="uploadCSV(file)" [disabled]="!file.value">
           Upload
         </button>
         <!-- <div id="chartContainer" style="height: 250px; width: 100%;"></div> -->

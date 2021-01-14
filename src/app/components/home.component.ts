@@ -84,11 +84,16 @@ export class HomeComponent implements OnInit {
         this.attending = res.length
         this.attendingGuestsData = res
       })
+      Promise.all([getInvited, getAttending])
   }
 
   uploadCSV(file){
     //call an api
-    
+    this.guestSvc.updateTables(this.jsonParsedData)
+      .then(res=>{
+        alert(res.message)
+      })
+      .catch(e=> console.log(e))
   }
 
  jsonParsedData: attendingGuest[]
@@ -108,8 +113,9 @@ export class HomeComponent implements OnInit {
   }
   downloadCSV() {
 
+    console.log(this.attendingGuestsData)
     const csv = this.papa.unparse(this.attendingGuestsData, {
-      "columns": ["first_name", "last_name", "table", "email", "type", "allergy", "food_type"]
+      "columns": ["id", "first_name", "last_name", "tableNo", "email", "type", "allergy", "food_type"]
     })
 
     const csvData = new Blob([csv], { type: 'text/csv;charset=utf-8' })

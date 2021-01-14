@@ -39,7 +39,7 @@ export interface attendingGuest {
     id: number
     first_name: string
     last_name: string
-    table: number
+    tableNo: number
     email: string
     type: string
     allergy: string

@@ -20,8 +20,6 @@ export class GuestService {
         return this.http.post<any>(`${BASE_URL}/rsvp-link`, {repName}, {headers: this.headers}).toPromise()
     }
 
-
-
       
     getInvited():Promise<invitedGuest[]> {
         return this.http.get<invitedGuest[]>(`${BASE_URL}/invited`, {headers: this.headers}).toPromise()
@@ -35,4 +33,10 @@ export class GuestService {
         return this.http.get<any>(`${environment.backendUrl}/checkin/${id}`).toPromise()
     }
     
+    updateTables(data: attendingGuest[]): Promise<any> {
+       const uploads= data.map(e=> {
+            return {id: e.id, tableNo: e.tableNo}
+        })
+        return this.http.post<any>(`${BASE_URL}/update-tableno`,uploads,{headers: this.headers} ).toPromise()
+    }
 }
