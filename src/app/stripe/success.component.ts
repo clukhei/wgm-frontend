@@ -16,6 +16,7 @@ export class SuccessComponent implements OnInit {
    this.payerInfo = this.activatedRoute.snapshot.queryParams as paymentBody
   }
   backToCheckIn(){
+    localStorage.removeItem('paymentStripeMode')
     this.router.navigate(['/checkin'])
   }
   ngOnInit(): void {

@@ -10,6 +10,7 @@ export class FailureComponent implements OnInit {
 
   constructor(private router: Router) { }
   backToCheckIn(){
+    localStorage.removeItem('paymentStripeMode')
     this.router.navigate(['/checkin'])
   }
   ngOnInit(): void {

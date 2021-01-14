@@ -15,7 +15,8 @@ export class PaymentService implements CanActivate {
 
     }
     stripeCheckout(obj: paymentBody): Promise<any>{
-        this.payingStripeMode = true
+        localStorage.setItem('paymentStripeMode', "true")
+        
        return this.http.post<any>(`${BASE_URL}/checkout`, obj ).toPromise()
     }
 
@@ -24,10 +25,12 @@ export class PaymentService implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-        if (this.payingStripeMode){
+        const paymentStripeMode = localStorage.getItem('paymentStripeMode')
+        if (paymentStripeMode === null || paymentStripeMode != "true"){
+            return this.router.parseUrl('/checkin')
+        }else {
             return true
         }
-        return this.router.parseUrl('/checkin')
     }
   
 }
