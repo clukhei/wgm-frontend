@@ -19,4 +19,5 @@ export class SeeYouComponent implements OnInit {
     this.seeYouTitle = `See you ${this.name}`
   }
 
+
 }
